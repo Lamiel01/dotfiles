@@ -17,17 +17,19 @@ syntax enable
 " VimPlug
 call plug#begin('~/.config/.nvim/plugged')
 
-Plug 'morhetz/gruvbox'
-Plug 'lervag/vimtex'    
+Plug 'morhetz/gruvbox' 			          " Gruvbox theme
+Plug 'iamcco/markdown-preview.vim'  	  " Markdown
+Plug 'lervag/vimtex' 		              " Tex Compiler
+Plug 'jiangmiao/auto-pairs'		          " Autopairs
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
-Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'          
 Plug 'vim-airline/vim-airline-themes'   
 Plug 'mattn/emmet-vim'
-Plug 'iamcco/markdown-preview.vim'
+Plug 'lighthaus-theme/vim-lighthaus'
+Plug 'brennier/quicktex'
 
 call plug#end()
 
@@ -39,7 +41,10 @@ highlight Normal ctermbg=none
 "
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme='lighthaus'
+nmap <Leader>j :bnext<CR>
+nmap <Leader>k :bprev<CR>
 
 let mapleader=" "
 let NERDTreeQuitOnOpen=1
