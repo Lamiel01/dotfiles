@@ -10,26 +10,35 @@ set scrolloff=6
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set clipboard=unnamed
+set clipboard=unnamedplus
 set showcmd
+set encoding=UTF-8
 syntax enable
 
 " VimPlug
 call plug#begin('~/.config/.nvim/plugged')
 
-Plug 'morhetz/gruvbox' 			          " Gruvbox theme
+" Theme
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline-themes'   
+Plug 'lighthaus-theme/vim-lighthaus'
+
+" Compilers
 Plug 'iamcco/markdown-preview.vim'  	  " Markdown
 Plug 'lervag/vimtex' 		              " Tex Compiler
+
+" Autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'		          " Autopairs
+
+" IDE 
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'          
-Plug 'vim-airline/vim-airline-themes'   
 Plug 'mattn/emmet-vim'
-Plug 'lighthaus-theme/vim-lighthaus'
-Plug 'brennier/quicktex'
+Plug 'ryanoasis/vim-webdevicons'
 
 call plug#end()
 
@@ -38,16 +47,14 @@ colorscheme gruvbox
 highlight Normal ctermbg=none
 
 " IDE
-"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+nnoremap <Leader>h :bprevious<CR>
+nnoremap <Leader>l   :bnext<CR>
 let g:airline_theme='lighthaus'
-nmap <Leader>j :bnext<CR>
-nmap <Leader>k :bprev<CR>
 
 let mapleader=" "
-let NERDTreeQuitOnOpen=1
 nmap <Leader>s <Plug>(easymotion-s2)
 nmap <Leader>n :NERDTreeFind<CR>
 nmap <Leader>w :w<CR>
